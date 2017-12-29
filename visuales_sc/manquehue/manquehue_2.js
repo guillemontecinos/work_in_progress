@@ -1,0 +1,61 @@
+//manquehue_1: visuals for Sector Coordillera
+//Todo: load a json file containing a bunch of points that represents level curves
+//Guillermo Montecinos
+//2017 12 26
+
+// var points = [];
+var cota = [];
+var converted = false;
+
+//load the .json file
+function preload(){
+  myPolyline = loadJSON("points.json");
+}
+
+function setup(){
+  createCanvas(windowWidth,windowHeight);
+  background(0);
+}
+
+function draw(){
+  //wait for 3 to load .json data becaus loadJOSN() is an asynchronous function
+  if(converted==false && millis() >= 3000){
+    polyToArray();
+    converted=true;
+    console.log("Loaded!");
+  }
+  //draw lines
+  else {
+    //TODO: can't read the argument nor the method of the object
+    drawCurve(cota[0].getPoints());
+  }
+
+}
+
+//this function converts the .json data into a set of vectors
+function polyToArray(){
+  //TODO: make it for a generic number of points
+  var aux = [];
+  for (var i = 0; i < myPolyline.polyline.length; i++) {
+    aux[i] = createVector(myPolyline.polyline[i].x, myPolyline.polyline[i].y);
+  }
+  //temporal
+  cota[0] = new myPoly(aux);
+}
+
+//this function draws a set of points into a line
+function drawCurve(myPoints){
+  stroke(255);
+  strokeWeight(2);
+  for (var i = 0; i < myPoints.length-1; i++) {
+    line(myPoints[i].x, myPoints[i].y, myPoints[i+1].x, myPoints[i+1].y);
+  }
+}
+
+function myPoly(setOfPoints){
+  this.points = setOfPoints; //must be an array of vectors
+
+  this.getPoints = function(){
+    return this.points;
+  }
+}
