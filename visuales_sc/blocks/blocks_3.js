@@ -108,8 +108,8 @@ function drawSinBlocks(bWidth, bHeight, nPiles){
     updateBlockPos(bWidth, auxHeight[i], horizontalMargin, verticalMargin, numPiles, blocksPerPile, separation);
     // TODO: make it more efficient because every position is being calculated each time
     for (var j = 0; j < piles[i].length; j++) {
-      // white color
-      fill('rgb(255,255,255)');
+      // sin color
+      fill(map(sin(millis()/800 + counter * alphaAux),-1,1,0,1),mouseX/width,mouseY/height);
       rect(piles[i][j].x, piles[i][j].y, bWidth, auxHeight[i]);
       counter++;
     }
@@ -122,7 +122,7 @@ function drawNoisyBlocks(bWidth, bHeight, nPiles){
   var auxHeight = [];
   var counter = 0;
   for (var i = 0; i < piles.length; i++) {
-    // noise height
+    // noisy height
     auxHeight[i] = bHeight*noise(millis()/800 + i * alphaAux);
     updateBlockPos(bWidth, auxHeight[i], horizontalMargin, verticalMargin, numPiles, blocksPerPile, separation);
     // TODO: make it more efficient because every position is being calculated each time
