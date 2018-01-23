@@ -1,0 +1,20 @@
+d2 $ sound "bass*2"
+d1 $ sound "~bd~bd"
+d2 $ sound "hh~hh~"
+d3 $ sound "arpy"
+d1 silence
+d2 silence
+d3 silence
+d1 $ sound "bd(5,8)"
+d1 $ e 5 8 $ sound "bd"
+d1 $ sound "bd <arpy:1 arpy:2>"
+d2 $ sound "hh*2"
+d3 $ sound "bass" $ midinote "38 42"
+
+hush
+d1 $ sound "bd*2"
+d2 $ sound "hh*8"
+d3 $ sound "~sd"
+d4 $ midinote "[38 38 50*2 50]" # sound "bass"
+d5 $ e 5 8 $ sound "arpy:1" # midinote "-10"
+d5 silence
