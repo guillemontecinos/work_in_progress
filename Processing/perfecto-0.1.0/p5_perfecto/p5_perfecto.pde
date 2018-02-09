@@ -49,9 +49,9 @@ void setup() {
   noCursor();
 
   //change ip address here
-  cams[0] = new IPCapture(this, "http://169.254.42.822/live", "", "");
-  cams[1] = new IPCapture(this, "http://169.254.96.221/live", "", "");
-  cams[2] = new IPCapture(this, "http://169.254.41.118/live", "", "");
+  cams[0] = new IPCapture(this, "http://169.254.62.243/live", "", "");
+  cams[1] = new IPCapture(this, "http://169.254.246.237/live", "", "");
+  cams[2] = new IPCapture(this, "http://169.254.246.237/live", "", "");
 
   //start cameras
   for (int i = 0; i < cams.length; i++) {

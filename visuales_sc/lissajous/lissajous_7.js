@@ -214,7 +214,7 @@ WebMidi.enable(function (err) {
   // Listen for a 'note on' message on all channels
   input.addListener('noteon', "all",
     function (e) {
-      if (e.note.name + e.note.octave == "C0") { //escena=1
+      if (e.note.name + e.note.octave == "C1") { //escena=1
         console.log("C0 received");
         console.log("velocity: " + e.velocity);
         triggerKick(e.velocity*1.1); //manual adjust
