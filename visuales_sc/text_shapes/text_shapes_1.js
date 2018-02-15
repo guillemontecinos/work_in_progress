@@ -5,7 +5,7 @@
 var font;
 var string = 'coordillera';
 var box;
-var tamanoTexto = 350;
+var tamanoTexto = 300;
 var puntos;
 var rad = 15;
 var a = 5;
@@ -47,6 +47,7 @@ function draw(){
     for (var i = 0; i < puntos.length; i++) {
       // fill(random(255),random(255),random(255),100);
       // ellipse(puntos[i].x + random(-5,5),puntos[i].y + random(-5,5),10,10);
+      // ellipse(puntos[i].x,puntos[i].y,10,10);
       // ellipse(puntos[i].x + random(1,rad) * cos(random(a) * millis()/mouseY + i * PI/3),puntos[i].y + random(1,rad) * sin(random(b) * millis()/mouseY + i * PI/3),rad*.9,rad*.9);
       ellipse(puntos[i].x + random(1,rad) * cos(random(a) * millis()/631 + i * PI/3),puntos[i].y + random(1,rad) * sin(random(b) * millis()/631 + i * PI/3),rad*.9,rad*.9);
     }

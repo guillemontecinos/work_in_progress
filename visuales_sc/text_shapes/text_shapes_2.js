@@ -3,10 +3,10 @@
 // by Guillermo Montecinos
 
 var font;
-var string = 'hola';
-// var string = 'coordillera';
+// var string = 'hola';
+var string = 'coordillera';
 var box;
-var tamanoTexto = 350;
+var tamanoTexto = 300;
 var puntos;
 var rad = 25;
 var a = 7;
@@ -32,7 +32,7 @@ function setup(){
 function draw(){
   // console.log(mouseX);
   // console.log(mouseY);
-  rad = map(550, 0, width, 0, 50);
+  rad = map(500, 0, width, 0, 50);
   randomSeed(100);
   // background(0,10);
   background(255,20);
