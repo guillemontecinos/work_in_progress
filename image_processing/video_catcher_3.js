@@ -5,8 +5,8 @@
 var video;
 
 function setup(){
-  createCanvas(640*2,480*2);
-  pixelDensity(1/2);
+  createCanvas(640,480);
+  pixelDensity(1);
   video = createCapture(VIDEO);
   video.size(width,height);
   video.hide();
