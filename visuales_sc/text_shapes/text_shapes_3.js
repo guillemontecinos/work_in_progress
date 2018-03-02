@@ -3,7 +3,7 @@
 // by Guillermo Montecinos
 
 var font;
-var string = 'coordillera';
+var string = 'javi';
 // var string = 'coordillera';
 var box;
 var tamanoTexto = 300;
