@@ -7,18 +7,18 @@
 // C: curve's color changes automated with a sin function
 // D: curve's color is controlled by 'X', and responses like a drum kick via MIDI
 
-var lissajous;
-
-function setup(){
-  createCanvas(windowWidth, windowHeight);
-  lissajous = new lissajousObject();
-  lissajous.setupLissajous();
-  noCursor();
-}
-
-function draw(){
-  lissajous.drawLissajous();
-}
+// var lissajous;
+//
+// function setup(){
+//   createCanvas(windowWidth, windowHeight);
+//   lissajous = new lissajousObject();
+//   lissajous.setupLissajous();
+//   noCursor();
+// }
+//
+// function draw(){
+//   lissajous.drawLissajous();
+// }
 
 //=====================================================
 // Lissajous Instance
@@ -258,30 +258,30 @@ function keyPressed() {
 //=====================================================
 
 //Función receptora de mensajes MIDI usando webMidi.js
-WebMidi.enable(function (err) {
-  if (err) {
-    console.log("WebMidi could not be enabled.", err);
-  }
-  // Viewing available inputs and outputs
-  console.log(WebMidi.inputs);
-  console.log(WebMidi.outputs);
-  // Display the current time
-  console.log(WebMidi.time);
-  // Retrieve an input by name, id or index
-  var input = WebMidi.getInputByName("auxVirtualPort Bus 1");
-
-  input = WebMidi.inputs[0];
-
-  // Listen for a 'note on' message on all channels
-  input.addListener('noteon', "all",
-    function (e) {
-      // console.log(e.note.name + e.note.octave);
-      // if (e.note.name + e.note.octave == "C2") { //escena=1
-      //   console.log("C0 received");
-      //   console.log("velocity: " + e.velocity);
-      //   triggerKick(e.velocity*1.1); //manual adjust
-      // }
-      lissajous.setParam(e.note.name + e.note.octave,e.velocity);
-    }
-  );
-});
+// WebMidi.enable(function (err) {
+//   if (err) {
+//     console.log("WebMidi could not be enabled.", err);
+//   }
+//   // Viewing available inputs and outputs
+//   console.log(WebMidi.inputs);
+//   console.log(WebMidi.outputs);
+//   // Display the current time
+//   console.log(WebMidi.time);
+//   // Retrieve an input by name, id or index
+//   var input = WebMidi.getInputByName("auxVirtualPort Bus 1");
+//
+//   input = WebMidi.inputs[0];
+//
+//   // Listen for a 'note on' message on all channels
+//   input.addListener('noteon', "all",
+//     function (e) {
+//       // console.log(e.note.name + e.note.octave);
+//       // if (e.note.name + e.note.octave == "C2") { //escena=1
+//       //   console.log("C0 received");
+//       //   console.log("velocity: " + e.velocity);
+//       //   triggerKick(e.velocity*1.1); //manual adjust
+//       // }
+//       lissajous.setParam(e.note.name + e.note.octave,e.velocity);
+//     }
+//   );
+// });
