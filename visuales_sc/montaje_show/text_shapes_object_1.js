@@ -1,30 +1,30 @@
 // Text to shapes manipulation
 // visuals for sector coordillera
 // by Guillermo Montecinos
-
-var font;
-var textShape;
-function preload(){
-  font = loadFont('./assets/helvetica.otf');
-}
-
-function setup(){
-  createCanvas(windowWidth,windowHeight);
-  textShape = new textObject(font);
-  textShape.setupText();
-  noCursor();
-}
-
-function draw(){
-  textShape.drawText();
-}
+//
+// var font;
+// var textShape;
+// function preload(){
+//   font = loadFont('./assets/helvetica.otf');
+// }
+//
+// function setup(){
+//   createCanvas(windowWidth,windowHeight);
+//   textShape = new textObject(font);
+//   textShape.setupText();
+//   noCursor();
+// }
+//
+// function draw(){
+//   textShape.drawText();
+// }
 
 function textObject(font){
   // variables
   this.font = font;
   this.string = 'coordillera';
   this.box;
-  this.tamanoTexto = 350;
+  this.tamanoTexto = 250;
   this.puntos;
   this.rad;
   this.a = 7;
@@ -38,10 +38,11 @@ function textObject(font){
       sampleFactor: .3,
       simplifyThreshold: 0
     });
+    colorMode(RGB);
   }
 
   this.drawText = function(){
-    this.rad = map(800, 0, width, 0, 50);
+    this.rad = map(500, 0, width, 0, 50);
     randomSeed(100);
     // background(0,10);
     background(0,20);

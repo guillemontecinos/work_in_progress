@@ -3,6 +3,7 @@
 // Show visuals control center
 // controlling random shapes and lissajous from one script
 // scene variable defines which visual is presented
+// MIDI messages are managed to fit Ableton Live's nomenclature
 // 0: rest 'text-like' visual
 // 1: Visual for Sayén
 // 2: Sueño o Recuerdo Lissajous visuals
@@ -26,9 +27,9 @@ function setup(){
   coordillera = new textObject(font);
   mimica = new ShapesObject();
   sueno_recuerdo = new lissajousObject();
-  coordillera.setupText();
   mimica.setupShapes();
   sueno_recuerdo.setupLissajous();
+  coordillera.setupText();
   noCursor();
 }
 
@@ -113,12 +114,13 @@ WebMidi.enable(function (err) {
         mimica.increaseShapes('q');
       }
       // scene specific functionality
-      else if (e.note.name + parseInt(e.note.octave+2) == "C3") {
+      // lissajous specific functionality controlling
+      sueno_recuerdo.setParam(e.note.name + parseInt(e.note.octave+2),e.velocity);
+      // Mimica specific functionality
+      if (e.note.name + parseInt(e.note.octave+2) == "C3") {
         console.log("C3 received");
         mimica.increaseShapes('N');
       }
-      // lissajous specific functionality controlling
-      lissajous.setParam(e.note.name + e.note.octave,e.velocity);
     }
   );
 });

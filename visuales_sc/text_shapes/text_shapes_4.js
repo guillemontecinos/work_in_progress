@@ -3,9 +3,9 @@
 // by Guillermo Montecinos
 
 var font;
-var string = 'coordillera';
+var string = 'sector';
 var box;
-var tamanoTexto = 400;
+var tamanoTexto = 200;
 var puntos;
 var rad = 15;
 var a = 5;
@@ -14,7 +14,7 @@ var b = 7;
 var triggered = false;
 
 function preload(){
-  font = loadFont('./assets/helvetica.otf');
+  font = loadFont('./assets/courier.otf');
 }
 
 function setup(){
@@ -32,7 +32,7 @@ function setup(){
 function draw(){
   console.log(mouseX);
   console.log(mouseY);
-  rad = map(900, 0, width, 0, 50);
+  rad = map(350, 0, width, 0, 50);
   randomSeed(100);
   background(0,0,0,10);
   translate(width/2,height/2);
@@ -43,7 +43,8 @@ function draw(){
       var vAux = createVector(puntos[i].x-box.w/2,puntos[i].y+box.h/2);
       vAux.mult(expRamp(150,250,.5));
       translate(vAux.x, vAux.y);
-      ellipse(random(1,rad) * cos(random(a) * millis()/631 + i * PI/3),random(1,rad) * sin(random(b) * millis()/631 + i * PI/3),rad*.9,rad*.9);
+      // ellipse(random(1,rad) * cos(random(a) * millis()/631 + i * PI/3),random(1,rad) * sin(random(b) * millis()/631 + i * PI/3),rad*.9,rad*.9);
+      rect(random(1,rad) * cos(random(a) * millis()/631 + i * PI/3),random(1,rad) * sin(random(b) * millis()/631 + i * PI/3),rad*.9,rad*.9);
     pop();
   }
 }

@@ -7,19 +7,6 @@
 // C: curve's color changes automated with a sin function
 // D: curve's color is controlled by 'X', and responses like a drum kick via MIDI
 
-// var lissajous;
-//
-// function setup(){
-//   createCanvas(windowWidth, windowHeight);
-//   lissajous = new lissajousObject();
-//   lissajous.setupLissajous();
-//   noCursor();
-// }
-//
-// function draw(){
-//   lissajous.drawLissajous();
-// }
-
 //=====================================================
 // Lissajous Instance
 //=====================================================
@@ -205,12 +192,18 @@ function lissajousObject(){
     fill(255);
   }
 
+  this.reActivateLissajous = function(){
+    // color mode
+    colorMode(HSB,1);
+    this.a = 1;
+    this.b = 1;
+    this.mode = 1;
+  }
+
   this.setParam = function(note, velocity){
     // note in format G1, C0, ie, note + scale
     // velocity goes from 0 to 127
     // Nota: En Ableton Live las notas están 2 octavas más arriba
-    // console.log("note: " + note);
-    // console.log("velocity: " + velocity);
     // scene: C2, velocity: 0 -> A; 20 -> B; 40 -> C; 60 -> D; 80 -> Q. hay que multiplicar por 127 el valor recibido
     if (note == "C2" && velocity*127 == 0) {
       this.scene = 'A';
@@ -248,40 +241,3 @@ function lissajousObject(){
     }
   }
 }
-
-function keyPressed() {
-  lissajous.readKeyPressed(key);
-}
-
-//=====================================================
-//MIDI mesajes recaption function
-//=====================================================
-
-//Función receptora de mensajes MIDI usando webMidi.js
-// WebMidi.enable(function (err) {
-//   if (err) {
-//     console.log("WebMidi could not be enabled.", err);
-//   }
-//   // Viewing available inputs and outputs
-//   console.log(WebMidi.inputs);
-//   console.log(WebMidi.outputs);
-//   // Display the current time
-//   console.log(WebMidi.time);
-//   // Retrieve an input by name, id or index
-//   var input = WebMidi.getInputByName("auxVirtualPort Bus 1");
-//
-//   input = WebMidi.inputs[0];
-//
-//   // Listen for a 'note on' message on all channels
-//   input.addListener('noteon', "all",
-//     function (e) {
-//       // console.log(e.note.name + e.note.octave);
-//       // if (e.note.name + e.note.octave == "C2") { //escena=1
-//       //   console.log("C0 received");
-//       //   console.log("velocity: " + e.velocity);
-//       //   triggerKick(e.velocity*1.1); //manual adjust
-//       // }
-//       lissajous.setParam(e.note.name + e.note.octave,e.velocity);
-//     }
-//   );
-// });

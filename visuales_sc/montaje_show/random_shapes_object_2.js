@@ -61,7 +61,7 @@ function Forma(minRad, maxRad, radLiss, a, b, speed, linearSpeed){
   this.pos = createVector(random(width), random(height));
   this.vel = createVector(random(-.5,.5),random(-.5,.5));
   this.acc = .95;
-  this.color = color(random(100,255),100);
+  this.color = color(255,random(50,120));
   this.angle = random(-PI/500, PI/500);
 
   this.setForma = function(){
