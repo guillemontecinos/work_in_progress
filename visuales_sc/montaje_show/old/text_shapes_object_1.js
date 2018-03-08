@@ -22,9 +22,10 @@
 function textObject(font){
   // variables
   this.font = font;
-  this.string = 'coordillera';
+  this.string = 'SECTORCOORDILLERA';
+  // this.string = 'SectorCoordillera';
   this.box;
-  this.tamanoTexto = 250;
+  this.tamanoTexto = 100;
   this.puntos;
   this.rad;
   this.a = 7;
@@ -42,7 +43,7 @@ function textObject(font){
   }
 
   this.drawText = function(){
-    this.rad = map(500, 0, width, 0, 50);
+    this.rad = map(200, 0, width, 0, 50);
     randomSeed(100);
     // background(0,10);
     background(0,20);
