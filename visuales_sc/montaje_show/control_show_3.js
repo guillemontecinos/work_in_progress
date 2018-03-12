@@ -90,6 +90,7 @@ WebMidi.enable(function (err) {
   // En Ableton Live las notas midi están
   input.addListener('noteon', "all",
     function (e) {
+      // console.log("Recibido: " + e.note.name + parseInt(e.note.octave+2));
       // scene controlling
       if (e.note.name + parseInt(e.note.octave+2) == "C0") {
         console.log("C0 received");

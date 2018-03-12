@@ -25,7 +25,7 @@ function textObject(font){
   this.string = 'SECTORCOORDILLERA';
   // this.string = 'SectorCoordillera';
   this.box;
-  this.tamanoTexto = 100;
+  this.tamanoTexto = 60;
   this.puntos;
   this.rad;
   this.a = 7;
@@ -43,7 +43,7 @@ function textObject(font){
   }
 
   this.drawText = function(){
-    this.rad = map(200, 0, width, 0, 50);
+    this.rad = map(60, 0, width, 0, 50);
     randomSeed(100);
     // background(0,10);
     background(0,20);
@@ -54,7 +54,14 @@ function textObject(font){
       fill(255,100);
       translate(-this.box.w/2,this.box.h/2);
       for (var i = 0; i < this.puntos.length; i++) {
-        ellipse(this.puntos[i].x + random(1,this.rad) * cos(random(this.a) * millis()/631 + i * PI/3),this.puntos[i].y + random(1,this.rad) * sin(random(this.b) * millis()/631 + i * PI/3),this.rad,this.rad);
+        push();
+          translate(this.puntos[i].x, this.puntos[i].y);
+          // ellipse(random(1,this.rad) * cos(random(this.a) * millis()/631 + i * PI/3), random(1,this.rad) * sin(random(this.b) * millis()/631 + i * PI/3),this.rad,this.rad);
+          push();
+            rotate(PI/4);
+            rect(random(1,this.rad) * cos(random(this.a) * millis()/631 + i * PI/3), random(1,this.rad) * sin(random(this.b) * millis()/631 + i * PI/3),this.rad,this.rad);
+          pop();
+        pop();
       }
     pop();
   }

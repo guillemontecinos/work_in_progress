@@ -15,8 +15,8 @@ function lissajousObject(){
   // Lissajous curve parameters
   this.radInit = height/2;
   this.rad = this.radInit;
-  this.a = 1;
-  this.b = 1;
+  this.a = 10;
+  this.b = 0;
   this.tailLengh = 15; //can be controlled externally
   this.alpha;
   this.tail = [];
@@ -36,7 +36,7 @@ function lissajousObject(){
   this.gain = 1;
 
   // methods
-  this.setupLissajous = function(){
+  this.setupLissajou s = function(){
     this.alpha = HALF_PI/this.tailLengh;
     //mic control initialization
     this.mic = new p5.AudioIn()
@@ -195,8 +195,8 @@ function lissajousObject(){
   this.reActivateLissajous = function(){
     // color mode
     colorMode(HSB,1);
-    this.a = 1;
-    this.b = 1;
+    this.a = 10;
+    this.b = 0;
     this.mode = 1;
   }
 
@@ -205,7 +205,7 @@ function lissajousObject(){
     // velocity goes from 0 to 127
     // Nota: En Ableton Live las notas están 2 octavas más arriba
     // scene: C2, velocity: 0 -> A; 20 -> B; 40 -> C; 60 -> D; 80 -> Q. hay que multiplicar por 127 el valor recibido
-    if (note == "C2" && velocity*127 == 0) {
+    if (note == "C2" && velocity*127 == 1) {
       this.scene = 'A';
     }
     else if (note == "C2" && velocity*127 == 20) {
@@ -238,6 +238,11 @@ function lissajousObject(){
     // set rad
     if (note == "G2") {
       this.rad = this.radInit*map(velocity*127,0,127,0,3);
+    }
+    // Setear tinte
+    if (note == "A2") {
+      this.a = 10;
+      this.b = 0;
     }
   }
 }

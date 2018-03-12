@@ -8,8 +8,8 @@
 function ShapesObject(){
   // variables
   this.points = [];
-  this.minRad = 100;
-  this.maxRad = 200;
+  this.minRad = 50;
+  this.maxRad = 100;
   this.radLiss = 10;
   this.a = 7;
   this.b = 5;
