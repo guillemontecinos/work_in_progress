@@ -7,7 +7,8 @@ Kinect2 kinect2;
 float a = 0;
 
 void setup() {
-  size(1200, 900, P3D);
+  //size(1200, 900, P3D);
+  fullScreen(P3D);
   kinect2 = new Kinect2(this);
   kinect2.initDepth();
   kinect2.initDevice();
@@ -59,7 +60,7 @@ void draw() {
 PVector depthToPointCloudPos(int x, int y, float depthValue) {
   PVector point = new PVector();
   point.z = (depthValue);// / (1.0f); // Convert from mm to meters
-  point.x = (x - CameraParams.cx) * point.z / CameraParams.fx;
+  point.x = 1.1*(x - CameraParams.cx) * point.z / CameraParams.fx;
   point.y = (y - CameraParams.cy) * point.z / CameraParams.fy;
   return point;
 }

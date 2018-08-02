@@ -11,7 +11,7 @@ int midiDevice  = 3;
 void setup() {
   size(480, 320);
   MidiBus.list(); 
-  myBus = new MidiBus(this, 0, 1); 
+  myBus = new MidiBus(this, 1, 2); 
 }
 
 void draw() {
