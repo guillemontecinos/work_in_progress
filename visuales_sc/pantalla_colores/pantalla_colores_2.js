@@ -22,17 +22,6 @@ function draw(){
   }
 }
 
-function newScreen(){
-  fill(tono);
-  rect(-rectWidth+x,0,rectWidth,rectHeight);
-  x+=10;
-  if(x>=rectWidth){
-    disparar = !disparar;
-    countTono++;
-    x=0;
-  }
-}
-
 function mouseClicked(){
   createScreen();
 }
