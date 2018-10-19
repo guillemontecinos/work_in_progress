@@ -5,9 +5,9 @@
 var font;
 var string = 'coordillera';
 var box;
-var tamanoTexto = 300;
+var tamanoTexto = 200;
 var puntos;
-var rad = 15;
+var rad = 10;
 var a = 5;
 var b = 7;
 
@@ -31,7 +31,7 @@ function draw(){
   console.log(mouseX);
   console.log(mouseY);
   // rad = map(mouseX, 0, width, 0, 50);
-  rad = map(550, 0, width, 0, 50);
+  rad = map(300, 0, width, 0, 50);
   randomSeed(100);
   background(0,0,0,10);
   translate(width/2,height/2);
