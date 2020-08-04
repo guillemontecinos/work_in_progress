@@ -2,7 +2,7 @@ import processing.pdf.*;
 
 
 PVector[][] puntos;
-int numPuntos = 40;
+int numPuntos = 20;
 int numLineas;
 int step = 10;
 
